@@ -1,6 +1,9 @@
 services:
   - type: web
-    name: hiresync-backend
+    name: my-flask-app
     env: python
-    buildCommand: "pip install -r backend/requirements.txt"
-    startCommand: "./start.sh"
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
