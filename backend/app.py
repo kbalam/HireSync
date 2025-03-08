@@ -1,7 +1,7 @@
 from flask import Flask, json, request, jsonify
-from resume_parser import extract_text
-from ai_matcher import match_resume
-from storage import save_candidate, get_candidates
+from .resume_parser import extract_text
+from .ai_matcher import match_resume
+from .storage import save_candidate, get_candidates
 from flask_cors import CORS  
 import os
 from dotenv import load_dotenv
