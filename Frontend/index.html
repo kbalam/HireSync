@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HireSync</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <a href="#" class="logo">
+            <i class="fas fa-users"></i>
+            <span>HireSync</span>
+          </a>
+        </div>
+        <div class="sidebar-menu">
+          <a class="menu-item" data-section="dashboard">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+          <a class="menu-item" data-section="candidates">
+            <i class="fas fa-users"></i>
+            <span>Candidates</span>
+          </a>
+          <a class="menu-item" data-section="resume-upload">
+            <i class="fas fa-cog"></i>
+            <span>Resume Upload</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Dashboard Section (Default Visible) -->
+        <div id="dashboard-section" class="content-section">
+          <div class="header">
+            <h1 class="page-title">Dashboard</h1>
+          </div>
+          <div class="stats-container">
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Total Candidates</span>
+                <div class="stat-icon blue">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <div class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Highest Score</span>
+                <div class="stat-icon green">
+                  <i class="fas fa-user-check"></i>
+                </div>
+              </div>
+              <div class="stat-value">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candidates Section (Hidden by Default) -->
+        <div id="candidates-section" class="content-section">
+          <div class="header">
+            <h1 class="page-title">Candidates</h1>
+          </div>
+          <div class="tabs">
+            <div class="tab-buttons">
+              <button class="tab-button active" data-tab="candidates">
+                All Candidates
+              </button>
+            </div>
+            <div class="tab-content active" id="candidates-tab">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Match Score</th>
+                    <th>Applied On</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be dynamically inserted here by script.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume Upload Section (Hidden by Default) -->
+        <div id="resume-upload-section" class="content-section">
+          <div class="header">
+            <h1 class="page-title">Resume Upload</h1>
+          </div>
+          <h3>Upload your Resume</h3>
+          <div class="file-upload" id="fileUpload">
+            <i class="fas fa-cloud-upload-alt" id="uploadIcon"></i>
+            <div class="file-upload-text" id="uploadText">
+              Drag & Drop or <span>Browse</span>
+            </div>
+            <div class="file-upload-hint" id="uploadHint">
+              Supported formats: PDF, DOCX
+            </div>
+            <input
+              type="file"
+              class="file-input"
+              accept=".pdf,.docx"
+              id="fileInput"
+            />
+            <div
+              class="file-upload-preview"
+              id="filePreview"
+              style="display: none"
+            >
+              <p id="fileName"></p>
+              <button id="removeFile">Remove</button>
+            </div>
+          </div>
+          <hr />
+          <h3 class="jd-heading">Upload Job Description</h3>
+          <div class="jd-container">
+            <div>
+              <textarea
+                id="jd"
+                class="jd-input"
+                placeholder="Job Description here"
+              ></textarea>
+            </div>
+          </div>
+          <div class="btn-container">
+            <button class="upload-btn" id="uploadButton" onclick="uploadResume()">Upload</button>
+          </div>
+          <!-- Loading Spinner -->
+          <div id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Uploading and processing resume...</p>
+          </div>
+
+          <!-- Status Message -->
+          <div id="statusMessage" style="display: none;"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
