@@ -1,2 +1,4 @@
 #!/bin/bash
-cd backend && python app.py
+cd backend
+echo "Starting Flask app..."
+python app.py
