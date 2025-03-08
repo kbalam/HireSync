@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: hiresync-backend
+    env: python
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "./start.sh"
