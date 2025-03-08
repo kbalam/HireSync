@@ -9,7 +9,7 @@ cohere==5.14.0
 colorama==0.4.6
 cryptography==44.0.2
 distro==1.9.0
-docx==0.2.4
+python-docx==1.1.2
 exceptiongroup==1.2.2
 fastavro==1.10.0
 filelock==3.17.0
