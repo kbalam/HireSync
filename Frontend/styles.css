@@ -427,6 +427,26 @@ body {
   color: var(--danger); /* Error message color */
 }
 
+.upload-info-text {
+  margin-top: 50px;
+  margin-left: 20px; /* Add spacing between the button and text */
+  max-width: 500px; /* Limit the width of the text */
+  font-size: 14px; /* Professional font size */
+  color: var(--gray); /* Use a subtle gray color */
+  line-height: 1.5; /* Improve readability */
+  align-self: center;
+}
+
+.upload-info-text ul {
+  list-style-type: disc; /* Use bullet points */
+  padding-left: 20px; /* Add padding for bullet points */
+  margin: 0; /* Remove default margin */
+}
+
+.upload-info-text li {
+  margin-bottom: 8px; /* Add spacing between bullet points */
+}
+
 /* Media Queries for Responsive Design */
 
 /* Tablet Screens (768px - 1024px) */
@@ -709,5 +729,18 @@ body {
 
   #statusMessage {
     font-size: 10px;
+  }
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 767px) {
+  .btn-container {
+    flex-direction: column; /* Stack button and text vertically on small screens */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .upload-info-text {
+    margin-left: 0; /* Remove left margin on small screens */
+    margin-top: 10px; /* Add spacing between button and text */
   }
 }
