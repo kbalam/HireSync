@@ -426,3 +426,288 @@ body {
 #statusMessage.error {
   color: var(--danger); /* Error message color */
 }
+
+/* Media Queries for Responsive Design */
+
+/* Tablet Screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar-menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  .menu-item {
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item i {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 15px;
+  }
+
+  .file-upload {
+    padding: 20px;
+  }
+
+  .file-upload i {
+    font-size: 28px;
+  }
+
+  .file-upload-text {
+    font-size: 14px;
+  }
+
+  .file-upload-hint {
+    font-size: 10px;
+  }
+
+  .jd-input {
+    min-height: 100px;
+  }
+
+  .upload-btn {
+    padding: 8px 12px;
+  }
+}
+
+/* Mobile Screens (up to 767px) */
+@media (max-width: 767px) {
+  .sidebar-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 10px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 10px;
+  }
+
+  .data-table th {
+    font-size: 14px;
+  }
+
+  .data-table td {
+    font-size: 12px;
+  }
+
+  .file-upload {
+    padding: 15px;
+  }
+
+  .file-upload i {
+    font-size: 24px;
+  }
+
+  .file-upload-text {
+    font-size: 12px;
+  }
+
+  .file-upload-hint {
+    font-size: 9px;
+  }
+
+  .jd-input {
+    min-height: 80px;
+    font-size: 14px;
+  }
+
+  .upload-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .match-score {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .action-btn {
+    padding: 3px;
+  }
+
+  .delete-btn {
+    font-size: 12px;
+  }
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+  }
+
+  #statusMessage {
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile Screens (up to 480px) */
+@media (max-width: 480px) {
+  .sidebar-header {
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo i {
+    font-size: 20px;
+  }
+
+  .menu-item {
+    padding: 8px;
+  }
+
+  .menu-item i {
+    font-size: 16px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .stat-card .stat-header span {
+    font-size: 16px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .file-upload {
+    padding: 10px;
+  }
+
+  .file-upload i {
+    font-size: 20px;
+  }
+
+  .file-upload-text {
+    font-size: 10px;
+  }
+
+  .file-upload-hint {
+    font-size: 8px;
+  }
+
+  .jd-input {
+    min-height: 60px;
+    font-size: 12px;
+  }
+
+  .upload-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .tab-button {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 6px 8px;
+  }
+
+  .data-table th {
+    font-size: 12px;
+  }
+
+  .data-table td {
+    font-size: 10px;
+  }
+
+  .match-score {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .action-btn {
+    padding: 2px;
+  }
+
+  .delete-btn {
+    font-size: 10px;
+  }
+
+  .spinner {
+    width: 15px;
+    height: 15px;
+    border-width: 2px;
+  }
+
+  #statusMessage {
+    font-size: 10px;
+  }
+}
