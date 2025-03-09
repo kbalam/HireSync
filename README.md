@@ -48,7 +48,7 @@ python -m venv venv
 4. **Activate the virtual environment**  
 - For Windows:  
 ```bash
-.env\Scriptsctivate
+.venv\Scripts\activate
 ```
 - For Linux/Mac:  
 ```bash
