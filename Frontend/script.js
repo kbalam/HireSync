@@ -4,11 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const contentSections = document.querySelectorAll(".content-section");
 
   // Retrieve last active section or default to "dashboard"
-  const savedSection = localStorage.getItem("activeSection") || "dashboard";
+  const validSections = ["dashboard", "candidates", "resume-upload"];
+  const savedSection = localStorage.getItem("activeSection");
+  const defaultSection = validSections.includes(savedSection)
+    ? savedSection
+    : "dashboard";
 
   // Hide all sections and show only the last active one
   contentSections.forEach((section) => section.classList.remove("active"));
-  document.getElementById(`${savedSection}-section`).classList.add("active");
+  document.getElementById(`${defaultSection}-section`).classList.add("active");
 
   // Function to handle sidebar clicks
   function handleSidebarClick(event) {
@@ -67,6 +71,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function resetResumeUploadSection() {
+  const fileInput = document.getElementById("fileInput");
+  const fileUpload = document.getElementById("fileUpload");
+  const uploadText = document.getElementById("uploadText");
+  const uploadHint = document.getElementById("uploadHint");
+  const filePreview = document.getElementById("filePreview");
+  const statusMessage = document.getElementById("statusMessage");
+  const jobDesc = document.getElementById("jd");
+
+  // Clear file input
+  fileInput.value = "";
+
+  // Reset UI
+  fileUpload.classList.remove("uploaded");
+  uploadText.style.display = "block";
+  uploadHint.style.display = "block";
+  filePreview.style.display = "none";
+  statusMessage.textContent = "";
+  jobDesc.value = "";
+}
+
 async function uploadResume() {
   const uploadButton = document.getElementById("uploadButton");
   const loadingSpinner = document.getElementById("loadingSpinner");
@@ -94,7 +119,7 @@ async function uploadResume() {
   formData.append("job_desc", jobDesc.value);
 
   try {
-    let response = await fetch("http://127.0.0.1:5000/upload", {
+    let response = await fetch("https://hiresync-backend.onrender.com/upload", {
       method: "POST",
       body: formData,
     });
@@ -108,17 +133,7 @@ async function uploadResume() {
     statusMessage.classList.remove("error");
 
     // Debugging: Log server response
-    console.log("Server Response:", result);
-
-    // Ensure score exists in response before updating UI
-    if (result.match_score !== undefined) {
-      document.getElementById(
-        "scoreDisplay"
-      ).innerText = `Match Score: ${result.match_score}`;
-    } else {
-      document.getElementById("scoreDisplay").innerText =
-        "Error: No score received";
-    }
+    // console.log("Server Response:", result);
 
     // Refresh candidate list and update count
     fetchCandidates();
@@ -135,14 +150,18 @@ async function uploadResume() {
     // Re-enable the upload button and hide the loading spinner
     uploadButton.disabled = false;
     loadingSpinner.style.display = "none";
+    resetResumeUploadSection();
     alert("Score updated, check your dashboard");
   }
 }
 
 async function fetchCandidates() {
   try {
-    let response = await fetch("http://127.0.0.1:5000/candidates");
+    let response = await fetch(
+      "https://hiresync-backend.onrender.com/candidates"
+    );
     let candidates = await response.json();
+    // console.log("Candidates fetched:", candidates);
 
     // Update the candidate table
     let candidatesTableBody = document.querySelector("#candidates-tab tbody");
@@ -193,7 +212,7 @@ async function deleteCandidate(candidateName) {
   if (confirm("Are you sure you want to delete this candidate?")) {
     try {
       let response = await fetch(
-        `http://127.0.0.1:5000/candidates/${candidateName}`,
+        `https://hiresync-backend.onrender.com/candidates/${candidateName}`,
         {
           method: "DELETE",
         }
