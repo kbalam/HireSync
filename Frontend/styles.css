@@ -742,5 +742,7 @@ body {
   .upload-info-text {
     margin-left: 0; /* Remove left margin on small screens */
     margin-top: 10px; /* Add spacing between button and text */
+    font-weight: 600;
+    font-size: 20px;
   }
 }
